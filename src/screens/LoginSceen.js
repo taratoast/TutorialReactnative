@@ -15,8 +15,12 @@ import {
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { useTheme } from '@react-navigation/native';
+import { ApiLogin } from '../service/ApiService';
+
+import { httpClient } from '../service/HttpClient';
 
 const LoginSceen = ({ navigation }) => {
+
     const { colors } = useTheme();
     const [data, setData] = React.useState({
         username: '',
@@ -25,8 +29,8 @@ const LoginSceen = ({ navigation }) => {
         secureTextEntry: true,
         isValidUser: true,
         isValidPassword: true,
-      });
-      
+    });
+
     const textInputChange = (val) => {
         if (val.trim().length >= 4) {
             setData({
@@ -88,6 +92,24 @@ const LoginSceen = ({ navigation }) => {
             });
         }
     }
+
+    const login = async (username, password) => {
+
+        navigation.navigate('MainPage');
+        // const data = {
+        //     Email: username,
+        //     PASSWORD: password,
+        // };
+        
+        // httpClient.post(ApiLogin.getlogin, data)
+        //     .then((response) => {
+        //         console.log(response.data);
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
+    }
+
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor='#1F656D' barStyle="light-content" />
@@ -187,7 +209,8 @@ const LoginSceen = ({ navigation }) => {
 
                 <View style={styles.button}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('MainPage')}
+                        onPress={() => login(data.username,data.password)}
+                        //onPress={() => navigation.navigate('MainPage')}
                         style={[styles.signIn, {
                             backgroundColor: '#1F656D',
                             borderColor: '#009387',
