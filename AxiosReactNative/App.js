@@ -52,13 +52,17 @@ const App = () => {
 
   return (
     <View>
-      <FlatList>
-
-      </FlatList>
+      <Text style={styles.container}>TEST API</Text>
     </View>
   )
 }
 
 export default App
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})
