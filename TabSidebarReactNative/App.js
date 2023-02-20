@@ -96,6 +96,7 @@ export default function App() {
       <Drawer.Navigator 
         initialRouteName='Nesting Bottom Tab'
       >
+        <Drawer.Screen name="X | HOME" component={TabNav} />
         {menu.map((_, i) => (
           <Drawer.Screen name={i + " | " + _.menuName} component={TabNav} key={i} />
         ))}
