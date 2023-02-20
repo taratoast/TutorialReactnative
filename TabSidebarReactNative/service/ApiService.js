@@ -16,3 +16,7 @@ export const ApiEmployee = {
 export const ApiJob = {
     getJob: '/Job/GetJob',
 }
+
+export const ApiMenu = {
+    getMenu: '/Organization/getMenu'
+}
